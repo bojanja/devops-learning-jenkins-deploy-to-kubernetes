@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/bojanja/devops-learning-jenkins-deploy-to-docker.git', branch:'master'
+        git url:'https://github.com/bojanja/devops-learning-jenkins-deploy-to-kubernetes.git', branch:'master'
       }
     }
 
