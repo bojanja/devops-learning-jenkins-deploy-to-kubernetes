@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: myPHPsite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: bojanja/devops-learning-jenkins-deploy-to-docker
+        name: myPHPsite
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: web
+  name: myPHPsite
+spec:
+  ports:
+  - nodePort: 32223
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: web
+  type: NodePort
