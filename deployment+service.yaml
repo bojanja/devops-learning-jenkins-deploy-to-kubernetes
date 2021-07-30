@@ -18,6 +18,7 @@ spec:
       containers:
       - image: bojanja/devops-learning-jenkins-deploy-to-docker
         name: my-php-site
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
