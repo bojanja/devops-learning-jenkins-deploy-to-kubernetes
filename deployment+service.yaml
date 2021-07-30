@@ -18,7 +18,13 @@ spec:
       containers:
       - image: bojanja/devops-learning-jenkins-deploy-to-docker
         name: my-php-site
-
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
