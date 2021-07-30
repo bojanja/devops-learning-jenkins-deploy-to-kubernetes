@@ -7,6 +7,11 @@ metadata:
   name: my-php-site
 spec:
   replicas: 4
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 25%
   selector:
     matchLabels:
       app: web
@@ -19,6 +24,12 @@ spec:
       - image: bojanja/devops-learning-jenkins-deploy-to-docker:latest
         name: my-php-site
         imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
         resources:
           requests:
             memory: "64Mi"
