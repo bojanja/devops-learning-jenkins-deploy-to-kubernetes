@@ -16,7 +16,7 @@ spec:
         app: web
     spec:
       containers:
-      - image: bojanja/devops-learning-jenkins-deploy-to-docker
+      - image: bojanja/devops-learning-jenkins-deploy-to-docker:latest
         name: my-php-site
         imagePullPolicy: Always
         resources:
